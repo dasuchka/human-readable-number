@@ -1,4 +1,4 @@
-function toReadable(number){
+module.exports = function toReadable(number){
     let readable='';
     let mass_of_separate_numbers=String(number).split('');
     const spisok={1: "one", 2:"two", 3:"three", 4:"four", 5:"five", 6:"six",
