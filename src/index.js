@@ -18,19 +18,33 @@ module.exports = function toReadable(number){
 
     for (let j=0; j<=mass.length-1; j++){
 
-            let len=mass[j].length-1;
+             let len=mass[j].length-1;
             if (spisok[Number(mass[j][len-2])]!==undefined){
                 read=read+spisok[Number(mass[j][len-2])]+' '+'hundred'
             }
             if (spisok[Number(mass[j][len-1]+mass[j][len])]!==undefined){
-                read=read+' '+spisok[Number(mass[j][len-1]+mass[j][len])]
+                if (read!==''){
+                    read=read+' '+spisok[Number(mass[j][len-1]+mass[j][len])]
+                }else{
+                    read=spisok[Number(mass[j][len-1]+mass[j][len])]
+                }
+
             }else{
                 if (spisok[Number(mass[j][len-1])]!==undefined){
-                    read=read+' '+spisok[Number(mass[j][len-1]*10)]
+                    if (read!==''){
+                        read=read+' '+spisok[Number(mass[j][len-1]*10)]
+                    }else{
+                        read=spisok[Number(mass[j][len-1]*10)];
+                    }
+
                 }
                 if (spisok[Number(mass[j][len])]!==undefined){
-                    read=read+' '+spisok[Number(mass[j][len])]
-            }
+                    if (read!==''){
+                        read=read+' '+spisok[Number(mass[j][len])]
+                    }else{
+                        read=spisok[Number(mass[j][len])];
+                    }
+                }
 
             }
             if (j>=1){
